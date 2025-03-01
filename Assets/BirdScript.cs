@@ -28,12 +28,12 @@ public class BirdScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        //when the space button is pressed the bird flaps/flies
         if(Input.GetKeyDown(KeyCode.Space)== true && birdIsAlive == true){
              myRigidbody.linearVelocity = Vector2.up * flapStrength;
              audioManager.playSFX(audioManager.flap);
         }
-       
+       //this ensures that if the bird is out of bounds the game ends
         if(transform.position.y > top || transform.position.y < bottom){
               audioManager.playSFX(audioManager.hit);
             logic.gameOver();
@@ -42,6 +42,7 @@ public class BirdScript : MonoBehaviour
         }
     }
 
+    //If the bird collides with the pipes or vice versa the game will end
     private void OnCollisionEnter2D(Collision2D collision)
     {
        logic.gameOver(); 

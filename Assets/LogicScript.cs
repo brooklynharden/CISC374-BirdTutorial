@@ -51,6 +51,8 @@ public class LogicScript : MonoBehaviour
        
     }
 
+    //This updates the players highest score, it keeps track as well
+    //If the person doesnt beat the highest score, no high score will show, but if they do 'New High Score' will pop up
     private void updateHighScore()
     {
         int savedHighScore = PlayerPrefs.GetInt(HighSCORE,0);
